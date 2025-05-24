@@ -59,7 +59,8 @@ public class MainKRS {
                    System.out.println("Sisa Mahasiswa DPA: " + antrian.getSisakuotaDpa());
                    break;
                 case 9:
-                    System.out.println("Mahasiswa yang belum diproses: " + antrian.getcetakJumlahBelumDiproses());
+                    System.out.println("Mahasiswa yang belum diproses: " + antrian.getJumlahBelumDiproses());
+                    break; 
                 case 10:
                     antrian.clear();
                     break;

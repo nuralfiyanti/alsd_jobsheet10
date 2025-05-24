@@ -40,20 +40,26 @@ public class AntrianKRS {
     }
 
     public void prosesKRS() {
-        if (size < 2) {
-            System.out.println("Antrian kurang dari 2, proses KRS membutuhkan 2 mahasiswa.");
-            return;
-        }
-
-        System.out.println("Mahasiswa yang diproses untuk KRS:");
-        for (int i = 0; i < 2; i++) {
-            Mahasiswa mhs = data[front];
-            mhs.tampilkanData();
-            front = (front + 1) % max;
-            size--;
-            jumlahDiproses++;
-        }
+    if (jumlahDiproses + 2 > 30) {
+        System.out.println("Kuota DPA telah penuh. Tidak bisa memproses mahasiswa lagi.");
+        return;
     }
+
+    if (size < 2) {
+        System.out.println("Antrian kurang dari 2, proses KRS membutuhkan 2 mahasiswa.");
+        return;
+    }
+
+    System.out.println("Mahasiswa yang diproses untuk KRS:");
+    for (int i = 0; i < 2; i++) {
+        Mahasiswa mhs = data[front];
+        mhs.tampilkanData();
+        front = (front + 1) % max;
+        size--;
+        jumlahDiproses++;
+    }
+}
+
 
     public void tampilkanSemua() {
         if (isEmpty()) {
@@ -101,7 +107,7 @@ public class AntrianKRS {
         return 30 - jumlahDiproses;
     }
 
-     public int getcetakJumlahBelumDiproses() {
+     public int getJumlahBelumDiproses() {
         return size;
     }
 }
